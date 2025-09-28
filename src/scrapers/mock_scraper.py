@@ -16,7 +16,7 @@ class MockGuitarScraper(BaseScraper):
                 "title": "Fender American Ultra Stratocaster - Ash Body Natural",
                 "price": 2399,
                 "condition": "Mint",
-                "image_url": "https://images.reverb.com/image/upload/s--fender01--/f_auto,t_large/v1234/fender-ultra-ash.jpg",
+                "image_url": "https://www.fender.com/cdn/assets/models/instruments/carousel/0118012747_fen_ins_crl_frt_1_rr.jpg",
                 "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-ultra-stratocaster/",
                 "source": "Fender"
             },
@@ -24,16 +24,16 @@ class MockGuitarScraper(BaseScraper):
                 "title": "Fender Player Stratocaster - 3-Color Sunburst",
                 "price": 899,
                 "condition": "Excellent",
-                "image_url": "https://images.reverb.com/image/upload/s--Dt8zTpyh--/f_auto,t_large/v1234/fender-player-strat.jpg",
-                "link": "https://reverb.com/item/12345-fender-player-stratocaster",
+                "image_url": "https://www.fender.com/cdn/assets/models/instruments/carousel/0144502500_fen_ins_crl_frt_1_rr.jpg",
+                "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/player-stratocaster/",
                 "source": "Reverb"
             },
             {
                 "title": "Fender American Professional II Stratocaster - Miami Blue",
                 "price": 1699,
                 "condition": "Mint",
-                "image_url": "https://images.reverb.com/image/upload/s--abc123--/f_auto,t_large/v5678/fender-am-pro-ii.jpg",
-                "link": "https://reverb.com/item/23456-fender-american-pro-ii",
+                "image_url": "https://www.fender.com/cdn/assets/models/instruments/carousel/0113902719_fen_ins_crl_frt_1_rr.jpg",
+                "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-professional-ii-stratocaster/",
                 "source": "Reverb"
             },
             {
@@ -41,7 +41,7 @@ class MockGuitarScraper(BaseScraper):
                 "price": 849,
                 "condition": "Excellent",
                 "image_url": "https://images.reverb.com/image/upload/s--def456--/f_auto,t_large/v9101/fender-tele.jpg",
-                "link": "https://reverb.com/item/34567-fender-player-telecaster",
+                "link": "https://www.fender.com/en-US/electric-guitars/telecaster/player-telecaster/",
                 "source": "Reverb"
             },
             {
@@ -49,7 +49,7 @@ class MockGuitarScraper(BaseScraper):
                 "price": 1149,
                 "condition": "Very Good",
                 "image_url": "https://images.reverb.com/image/upload/s--ghi789--/f_auto,t_large/v1112/fender-vintera.jpg",
-                "link": "https://reverb.com/item/45678-fender-vintera-60s",
+                "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/vintera-60s-stratocaster/",
                 "source": "Reverb"
             },
             {
@@ -57,7 +57,7 @@ class MockGuitarScraper(BaseScraper):
                 "price": 2199,
                 "condition": "Mint",
                 "image_url": "https://images.reverb.com/image/upload/s--jkl012--/f_auto,t_large/v1314/fender-ultra.jpg",
-                "link": "https://reverb.com/item/56789-fender-american-ultra",
+                "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-ultra-stratocaster/",
                 "source": "Reverb"
             },
             {
@@ -74,24 +74,24 @@ class MockGuitarScraper(BaseScraper):
                 "title": "Gibson Les Paul Standard 50s - Heritage Cherry Sunburst",
                 "price": 2699,
                 "condition": "Excellent",
-                "image_url": "https://images.reverb.com/image/upload/s--mno345--/f_auto,t_large/v1516/gibson-lp-std.jpg",
-                "link": "https://reverb.com/item/67890-gibson-les-paul-standard",
+                "image_url": "https://www.gibson.com/media/catalog/product/l/p/lps5p00hcnh_main_01.png",
+                "link": "https://www.gibson.com/en-US/Guitar/Les-Paul-Standard-50s",
                 "source": "Reverb"
             },
             {
                 "title": "Gibson Les Paul Studio - Ebony",
                 "price": 1599,
                 "condition": "Very Good",
-                "image_url": "https://images.reverb.com/image/upload/s--pqr678--/f_auto,t_large/v1718/gibson-studio.jpg",
-                "link": "https://reverb.com/item/78901-gibson-les-paul-studio",
+                "image_url": "https://www.gibson.com/media/catalog/product/l/p/lpst00ebch_main_01.png",
+                "link": "https://www.gibson.com/en-US/Guitar/Les-Paul-Studio",
                 "source": "Reverb"
             },
             {
                 "title": "Gibson SG Standard - Cherry Red",
                 "price": 1899,
                 "condition": "Excellent",
-                "image_url": "https://images.reverb.com/image/upload/s--stu901--/f_auto,t_large/v1920/gibson-sg.jpg",
-                "link": "https://reverb.com/item/89012-gibson-sg-standard",
+                "image_url": "https://www.gibson.com/media/catalog/product/s/g/sgs00hcch_main_01.png",
+                "link": "https://www.gibson.com/en-US/Guitar/SG-Standard",
                 "source": "Reverb"
             }
         ],
@@ -153,7 +153,7 @@ class MockGuitarScraper(BaseScraper):
                 "price": 449,
                 "condition": "Very Good",
                 "image_url": "https://images.reverb.com/image/upload/s--jkl789--/f_auto,t_large/v3132/ibanez-as73.jpg",
-                "link": "https://reverb.com/item/45678-ibanez-artcore-as73",
+                "link": "https://www.ibanez.com/usa/products/detail/as73_00_01.html",
                 "source": "Reverb"
             }
         ],
@@ -163,7 +163,7 @@ class MockGuitarScraper(BaseScraper):
                 "price": 1749,
                 "condition": "Mint",
                 "image_url": "https://images.reverb.com/image/upload/s--schecter01--/f_auto,t_large/v5678/schecter-hellraiser.jpg",
-                "link": "https://reverb.com/item/78901-schecter-hellraiser-c1",
+                "link": "https://www.schecterguitars.com/guitars/hellraiser-c-1",
                 "source": "Reverb"
             },
             {
@@ -171,7 +171,7 @@ class MockGuitarScraper(BaseScraper):
                 "price": 1299,
                 "condition": "Excellent",
                 "image_url": "https://images.reverb.com/image/upload/s--schecter02--/f_auto,t_large/v6789/schecter-omen.jpg",
-                "link": "https://reverb.com/item/89012-schecter-omen-extreme",
+                "link": "https://www.schecterguitars.com/guitars/omen-extreme-6-fr",
                 "source": "Reverb"
             }
         ],
@@ -180,15 +180,15 @@ class MockGuitarScraper(BaseScraper):
                 "title": "ESP LTD EC-1000 - Black",
                 "price": 1799,
                 "condition": "Excellent",
-                "image_url": "https://images.reverb.com/image/upload/s--esp001--/f_auto,t_large/v7890/esp-ec1000.jpg",
-                "link": "https://reverb.com/p/esp-ltd-ec-1000-black",
+                "image_url": "https://www.espguitars.com/sites/default/files/products/guitars/EC-1000_Black_Front.jpg",
+                "link": "https://www.espguitars.com/products/22748-ec-1000",
                 "source": "Reverb"
             },
             {
                 "title": "ESP LTD MH-1000 Floyd Rose - Violet Andromeda",
                 "price": 900,
                 "condition": "Mint",
-                "image_url": "https://images.reverb.com/image/upload/s--esp002--/f_auto,t_large/v8901/esp-mh1000.jpg",
+                "image_url": "https://www.espguitars.com/sites/default/files/products/guitars/MH-1000_Violet_Andromeda_Front.jpg",
                 "link": "https://www.espguitars.com/products/22751-mh-1000",
                 "source": "ESP Guitars"
             }

@@ -47,6 +47,12 @@ st.markdown("""
     /* Main styling */
     .main {
         padding-top: 1rem;
+        background-color: #e6f3ff;
+    }
+    
+    /* Light blue background for the whole app */
+    .stApp {
+        background: linear-gradient(180deg, #e6f3ff 0%, #f0f8ff 100%);
     }
     
     /* Header styling */
@@ -372,8 +378,8 @@ def create_budget_visualization(guitar_price, user_budget_str):
 def display_single_guitar_detailed(guitar, explanation):
     """Display a single guitar with comprehensive details"""
     
-    # Make the entire layout wider
-    st.markdown('<div style="max-width: 1200px; margin: 0 auto;">', unsafe_allow_html=True)
+    # Make the entire layout MUCH wider
+    st.markdown('<div style="max-width: 1600px; margin: 0 auto;">', unsafe_allow_html=True)
     
     # Main guitar info header
     guitar_title = guitar.get('title', 'Unknown Guitar')
@@ -393,22 +399,40 @@ def display_single_guitar_detailed(guitar, explanation):
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        # Guitar visual representation
+        # Display actual guitar image or fallback to icon
         brand = "Guitar"
         for brand_name in ["Fender", "Gibson", "Ibanez", "ESP", "Schecter", "PRS", "Jackson", "Dean"]:
             if brand_name.lower() in guitar_title.lower():
                 brand = brand_name
                 break
         
-        st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-             color: white; padding: 40px; border-radius: 15px; text-align: center; 
-             box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 20px;">
-            <div style="font-size: 64px; margin-bottom: 15px;">🎸</div>
-            <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">{brand}</div>
-            <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">{guitar_title}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        # Try to display guitar image if available
+        image_url = guitar.get('image_url')
+        if image_url:
+            try:
+                st.image(image_url, caption=guitar_title, use_column_width=True)
+            except:
+                # Fallback to icon if image fails
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                     color: white; padding: 40px; border-radius: 15px; text-align: center; 
+                     box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                    <div style="font-size: 64px; margin-bottom: 15px;">🎸</div>
+                    <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">{brand}</div>
+                    <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">{guitar_title}</div>
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            # No image URL, show icon
+            st.markdown(f"""
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                 color: white; padding: 40px; border-radius: 15px; text-align: center; 
+                 box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                <div style="font-size: 64px; margin-bottom: 15px;">🎸</div>
+                <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">{brand}</div>
+                <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">{guitar_title}</div>
+            </div>
+            """, unsafe_allow_html=True)
         
         # Guitar details
         condition = guitar.get('condition', 'Unknown')
@@ -726,23 +750,43 @@ def main():
             **Custom Shop:** Specify premium woods, hardware brands (Hipshot, Gotoh)
             """)
     
-    # Main content area
+    # Main content area with flashy title
+    # Flashy animated title
+    st.markdown("""
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h1 style="
+                background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-size: 3.5rem;
+                font-weight: 800;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                animation: gradient-shift 3s ease infinite;
+                margin-bottom: 0.5rem;
+            ">Find Me A Guitar Pls</h1>
+            <p style="color: #666; font-size: 1.2rem; font-style: italic;">Your AI-Powered Guitar Matchmaker 🎸</p>
+        </div>
+        <style>
+            @keyframes gradient-shift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        </style>
+    """, unsafe_allow_html=True)
+    
     # Load and display pic.png at the top (centered)
     try:
         # Use simple direct path since pic.png is in main folder
         main_image = Image.open("pic.png")
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
-            st.image(main_image, width=400, caption="Find Me a Guitar - AI-Powered Guitar Recommendation Expert")
+            st.image(main_image, width=400, use_column_width=False)
     except Exception as e:
-        # Fallback header without image
-        st.markdown("""
-        <div class="main-header">
-            <h1>🎸 Find Me a Guitar</h1>
-            <p>Tell us what you want, and we'll find your perfect match</p>
-        </div>
-        """, unsafe_allow_html=True)
-        st.caption(f"Note: Could not load pic.png ({str(e)})")
+        # Fallback if image not found
+        st.info("🎸 Guitar image not available")
     
     # Main search section
     st.markdown("## 🔍 Search for Your Guitar")
