@@ -408,9 +408,16 @@ def display_single_guitar_detailed(guitar, explanation):
         
         # Try to display guitar image if available
         image_url = guitar.get('image_url')
+        
+        # Debug: Show what fields are available
+        st.write("Debug - Guitar fields:", list(guitar.keys()))
+        st.write("Debug - Image URL:", image_url)
+        
         if image_url:
             try:
-                st.image(image_url, caption=guitar_title, use_column_width=True)
+                # Use a more reliable image display method
+                st.markdown(f'<img src="{image_url}" alt="{guitar_title}" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">', unsafe_allow_html=True)
+                st.caption(guitar_title)
             except:
                 # Fallback to icon if image fails
                 st.markdown(f"""
