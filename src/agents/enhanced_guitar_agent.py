@@ -45,8 +45,7 @@ class EnhancedGuitarAgent:
         self.scraper = MockGuitarScraper()
         self.knowledge_base = GuitarKnowledgeBase()
         
-        # Initialize fallback mock scraper
-        from ..scrapers.mock_scraper import MockGuitarScraper
+        # Initialize fallback mock scraper (same as main scraper now)
         self.mock_scraper = MockGuitarScraper()
         
         # Track reasoning for explainability

@@ -760,8 +760,8 @@ def main():
         key="main_search_input"
     )
     
-    # Clear the selected query after displaying it
-    if default_query and user_query == default_query:
+    # Clear the selected query after the user modifies it
+    if default_query and user_query != default_query:
         st.session_state.selected_query = ''
     
     # Search button
