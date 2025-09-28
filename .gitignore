@@ -51,7 +51,7 @@ ehthumbs.db
 Thumbs.db
 
 # Streamlit
-.streamlit/
+.streamlit/secrets.toml
 
 # Test files
 test_*.py

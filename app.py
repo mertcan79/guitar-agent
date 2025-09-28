@@ -727,11 +727,13 @@ def main():
             """)
     
     # Main content area
-    # Load and display pic.png at the top
+    # Load and display pic.png at the top (centered)
     try:
         # Use simple direct path since pic.png is in main folder
         main_image = Image.open("pic.png")
-        st.image(main_image, width=400, caption="Find Me a Guitar - AI-Powered Guitar Recommendation Expert")
+        col1, col2, col3 = st.columns([1, 1, 1])
+        with col2:
+            st.image(main_image, width=400, caption="Find Me a Guitar - AI-Powered Guitar Recommendation Expert")
     except Exception as e:
         # Fallback header without image
         st.markdown("""

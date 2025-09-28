@@ -6,9 +6,19 @@ from dotenv import load_dotenv
 env_path = Path(__file__).parent.parent / '.env'
 load_dotenv(env_path)
 
+# Handle Streamlit secrets
+try:
+    import streamlit as st
+    if hasattr(st, 'secrets'):
+        OPENAI_KEY = st.secrets.get('OPENAI_KEY', os.getenv('OPENAI_KEY', ''))
+    else:
+        OPENAI_KEY = os.getenv('OPENAI_KEY', '')
+except ImportError:
+    OPENAI_KEY = os.getenv('OPENAI_KEY', '')
+
 class Config:
     # OpenAI Configuration
-    OPENAI_API_KEY = os.getenv('OPENAI_KEY', '')
+    OPENAI_API_KEY = OPENAI_KEY
     
     # Model Configuration
     LLM_MODEL = "gpt-4"

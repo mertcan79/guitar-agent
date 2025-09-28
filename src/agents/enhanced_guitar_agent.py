@@ -101,10 +101,12 @@ class EnhancedGuitarAgent:
         Extract and infer the following (use the expert knowledge to fill gaps):
         
         1. Budget: Explicit or implied price range
-        2. Musical Style: Genre mentioned or inferred from artists
+        2. Musical Style: Genre mentioned or inferred from artists (if user mentions specific technical specs like 'ash body, pau ferro fretboard', do NOT assume blues or generic genre - focus on the technical requirements)
         3. Skill Level: Stated or inferred from context
         4. Artist References: Any musicians mentioned
-        5. Guitar Features: Specific requirements (pickups, body type, etc.)
+        5. Guitar Features: Specific requirements (body wood, neck wood, fretboard, pickups, bridge type, etc.)
+        
+        IMPORTANT: Pay close attention to technical specifications. If the user mentions specific guitar parts or woods (ash body, pau ferro fretboard, quartersawn neck, specific pickup brands, bridge types), capture these precisely in required_features.
         6. Use Case: Where/how they'll use it (home, gigging, etc.)
         
         Return JSON format:
@@ -112,7 +114,7 @@ class EnhancedGuitarAgent:
             "budget_min": <number>,
             "budget_max": <number>,
             "budget_flexibility": <0.1-0.3>,
-            "musical_style": "<genre>",
+            "musical_style": "<genre or 'custom/technical' if focus is on specs>",
             "skill_level": "<beginner/intermediate/advanced/professional>",
             "artist_reference": "<artist name if mentioned>",
             "guitar_type": "<electric/acoustic/bass>",
@@ -245,8 +247,15 @@ class EnhancedGuitarAgent:
             "max_results": 25
         }
         
+        # Custom shop/high-end targeting based on technical specs
+        required_features = analysis.get("required_features", [])
+        custom_shop_keywords = ["custom shop", "ash body", "pau ferro", "quartersawn", "hipshot", "graph tech", "gotoh", "seymour duncan"]
+        if any(keyword in " ".join(required_features).lower() for keyword in custom_shop_keywords):
+            search_params["brands"] = ["fender"]  # Prioritize Fender for custom shop requests
+            self._add_reasoning_step("Detected custom shop quality request - prioritizing high-end Fender guitars")
+        
         # Brand targeting based on knowledge
-        if analysis.get("artist_reference"):
+        elif analysis.get("artist_reference"):
             artist_info = GuitarKnowledgeBase.get_artist_info(analysis["artist_reference"])
             if artist_info:
                 search_params["brands"] = artist_info["brands"][:3]
@@ -344,22 +353,24 @@ Available Guitars:
 {guitars_text}
 
 Generate detailed recommendations considering:
-1. How well each guitar matches the user's specific needs
+1. How well each guitar matches the user's specific technical requirements (body wood, neck wood, fretboard, pickups, bridge type, etc.)
 2. Value for money given condition and market prices
 3. Long-term satisfaction for their musical goals
 4. Integration of expert knowledge about artists/genres
 5. Skill level appropriateness
 
+IMPORTANT: When the user mentions specific technical specifications (like "ash body", "pau ferro fretboard", "Gotoh tremolo", "Seymour Duncan pickups"), focus on guitars that actually have these features. Do NOT default to blues or generic analysis if the request is clearly technical.
+
 Provide response in JSON format:
 {{
-    "user_analysis": "Clear summary of what the user is looking for",
+    "user_analysis": "Clear summary of what the user is looking for, including specific technical requirements and budget range. Format budget as 'Budget: $X,XXX - $X,XXX' (not concatenated like '$2000and3000')",
     "recommendations": [
         {{
             "rank": 1,
             "guitar_title": "exact title from list",
             "price": <number>,
             "match_score": <0.75-0.95>,
-            "why_recommended": "Comprehensive 3-4 sentence explanation covering: how it matches specific technical requirements (body wood, pickups, bridge), why it suits the musical style, how it fits the skill level, and budget considerations. Include specific technical details mentioned in the request.",
+            "why_recommended": "Comprehensive 3-4 sentence explanation covering: how it matches specific technical requirements (body wood, pickups, bridge), why it suits the musical style, how it fits the skill level, and budget considerations. Include specific technical details mentioned in the request. Focus on ACTUAL guitar specifications, not generic assumptions.",
             "pros": ["matches exact technical specs like 'EMG 81/85 pickups'", "perfect for requested genre", "professional build quality", "excellent value", "suitable for skill level"],
             "cons": ["minor consideration 1", "setup consideration if any"],
             "best_for": "What this guitar excels at for this user",
@@ -417,7 +428,7 @@ Focus on quality recommendations (3-5 max) rather than quantity."""
                 basic_recommendations.append(basic_rec)
             
             return GuitarRecommendation(
-                user_analysis=f"Looking for a {analysis.get('musical_style', 'guitar')} guitar within ${analysis.get('budget_min', 0)}-${analysis.get('budget_max', 0)} budget range.",
+                user_analysis=f"Looking for a {analysis.get('musical_style', 'guitar')} guitar within Budget: ${analysis.get('budget_min', 0):,} - ${analysis.get('budget_max', 0):,} budget range.",
                 recommendations=basic_recommendations,
                 market_insights="Using curated guitar database for reliable recommendations.",
                 alternative_suggestions="Consider exploring different brands or adjusting your budget for more options."

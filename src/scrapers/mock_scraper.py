@@ -13,6 +13,14 @@ class MockGuitarScraper(BaseScraper):
     MOCK_GUITARS = {
         "fender": [
             {
+                "title": "Fender American Ultra Stratocaster - Ash Body Natural",
+                "price": 2399,
+                "condition": "Mint",
+                "image_url": "https://images.reverb.com/image/upload/s--fender01--/f_auto,t_large/v1234/fender-ultra-ash.jpg",
+                "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-ultra-stratocaster/",
+                "source": "Fender"
+            },
+            {
                 "title": "Fender Player Stratocaster - 3-Color Sunburst",
                 "price": 899,
                 "condition": "Excellent",
@@ -51,6 +59,14 @@ class MockGuitarScraper(BaseScraper):
                 "image_url": "https://images.reverb.com/image/upload/s--jkl012--/f_auto,t_large/v1314/fender-ultra.jpg",
                 "link": "https://reverb.com/item/56789-fender-american-ultra",
                 "source": "Reverb"
+            },
+            {
+                "title": "Fender American Ultra Stratocaster HSS - Ash Body, Pau Ferro Fretboard, Quartersawn Maple Neck",
+                "price": 2299,
+                "condition": "Mint",
+                "image_url": "https://images.reverb.com/image/upload/s--fender-custom--/f_auto,t_large/v2024/fender-ultra-hss-ash.jpg",
+                "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-ultra-stratocaster-hss/",
+                "source": "Fender"
             }
         ],
         "gibson": [
