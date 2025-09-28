@@ -26,7 +26,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Excellent",
                 "image_url": "https://www.fender.com/cdn/assets/models/instruments/carousel/0144502500_fen_ins_crl_frt_1_rr.jpg",
                 "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/player-stratocaster/",
-                "source": "Reverb"
+                "source": "Fender"
             },
             {
                 "title": "Fender American Professional II Stratocaster - Miami Blue",
@@ -34,7 +34,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Mint",
                 "image_url": "https://www.fender.com/cdn/assets/models/instruments/carousel/0113902719_fen_ins_crl_frt_1_rr.jpg",
                 "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-professional-ii-stratocaster/",
-                "source": "Reverb"
+                "source": "Fender"
             },
             {
                 "title": "Fender Player Telecaster - Butterscotch Blonde",
@@ -42,7 +42,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Excellent",
                 "image_url": "https://images.reverb.com/image/upload/s--def456--/f_auto,t_large/v9101/fender-tele.jpg",
                 "link": "https://www.fender.com/en-US/electric-guitars/telecaster/player-telecaster/",
-                "source": "Reverb"
+                "source": "Fender"
             },
             {
                 "title": "Fender Vintera '60s Stratocaster - Olympic White",
@@ -50,7 +50,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Very Good",
                 "image_url": "https://images.reverb.com/image/upload/s--ghi789--/f_auto,t_large/v1112/fender-vintera.jpg",
                 "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/vintera-60s-stratocaster/",
-                "source": "Reverb"
+                "source": "Fender"
             },
             {
                 "title": "Fender American Ultra Stratocaster - Texas Tea",
@@ -58,7 +58,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Mint",
                 "image_url": "https://images.reverb.com/image/upload/s--jkl012--/f_auto,t_large/v1314/fender-ultra.jpg",
                 "link": "https://www.fender.com/en-US/electric-guitars/stratocaster/american-ultra-stratocaster/",
-                "source": "Reverb"
+                "source": "Fender"
             },
             {
                 "title": "Fender American Ultra Stratocaster HSS - Ash Body, Pau Ferro Fretboard, Quartersawn Maple Neck",
@@ -76,7 +76,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Excellent",
                 "image_url": "https://www.gibson.com/media/catalog/product/l/p/lps5p00hcnh_main_01.png",
                 "link": "https://www.gibson.com/en-US/Guitar/Les-Paul-Standard-50s",
-                "source": "Reverb"
+                "source": "Gibson"
             },
             {
                 "title": "Gibson Les Paul Studio - Ebony",
@@ -84,7 +84,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Very Good",
                 "image_url": "https://www.gibson.com/media/catalog/product/l/p/lpst00ebch_main_01.png",
                 "link": "https://www.gibson.com/en-US/Guitar/Les-Paul-Studio",
-                "source": "Reverb"
+                "source": "Gibson"
             },
             {
                 "title": "Gibson SG Standard - Cherry Red",
@@ -92,7 +92,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Excellent",
                 "image_url": "https://www.gibson.com/media/catalog/product/s/g/sgs00hcch_main_01.png",
                 "link": "https://www.gibson.com/en-US/Guitar/SG-Standard",
-                "source": "Reverb"
+                "source": "Gibson"
             }
         ],
         "epiphone": [
@@ -182,7 +182,7 @@ class MockGuitarScraper(BaseScraper):
                 "condition": "Excellent",
                 "image_url": "https://www.espguitars.com/sites/default/files/products/guitars/EC-1000_Black_Front.jpg",
                 "link": "https://www.espguitars.com/products/22748-ec-1000",
-                "source": "Reverb"
+                "source": "ESP Guitars"
             },
             {
                 "title": "ESP LTD MH-1000 Floyd Rose - Violet Andromeda",
