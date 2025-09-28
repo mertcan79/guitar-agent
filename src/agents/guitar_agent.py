@@ -8,7 +8,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.schema import SystemMessage
 
 from ..config import config
-from ..scrapers import ReverbScraper
+from ..scrapers import MockGuitarScraper
 from ..models.guitar import GuitarRecommendation
 
 logger = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ class GuitarSearchAgent:
         )
         
         # Initialize scraper
-        self.scraper = ReverbScraper(headless=True)
+        self.scraper = MockGuitarScraper()
         
         # Initialize memory
         self.memory = ConversationBufferMemory(
