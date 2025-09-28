@@ -406,20 +406,41 @@ def display_single_guitar_detailed(guitar, explanation):
                 brand = brand_name
                 break
         
-        # Try to display guitar image if available
+        # Display guitar image
+        # Use a placeholder image service that works reliably
+        guitar_name_encoded = guitar_title.replace(' ', '%20')
+        
+        # Generate a placeholder image with guitar details
+        placeholder_url = f"https://via.placeholder.com/400x300/667eea/ffffff?text={guitar_name_encoded}"
+        
+        # Try to use actual image if available, otherwise use placeholder
         image_url = guitar.get('image_url')
         
-        # Debug: Show what fields are available
-        st.write("Debug - Guitar fields:", list(guitar.keys()))
-        st.write("Debug - Image URL:", image_url)
-        
         if image_url:
+            # Try to display the actual image, but don't fail if it doesn't work
             try:
-                # Use a more reliable image display method
-                st.markdown(f'<img src="{image_url}" alt="{guitar_title}" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">', unsafe_allow_html=True)
-                st.caption(guitar_title)
+                st.image(image_url, caption=guitar_title, use_container_width=True)
             except:
-                # Fallback to icon if image fails
+                # Fallback to placeholder image
+                try:
+                    st.image(placeholder_url, caption=guitar_title, use_container_width=True)
+                except:
+                    # Final fallback to icon if everything fails
+                    st.markdown(f"""
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                         color: white; padding: 40px; border-radius: 15px; text-align: center; 
+                         box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                        <div style="font-size: 64px; margin-bottom: 15px;">🎸</div>
+                        <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">{brand}</div>
+                        <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">{guitar_title}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+        else:
+            # No image URL, use placeholder
+            try:
+                st.image(placeholder_url, caption=guitar_title, use_container_width=True)
+            except:
+                # Fallback to icon
                 st.markdown(f"""
                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                      color: white; padding: 40px; border-radius: 15px; text-align: center; 
@@ -429,17 +450,6 @@ def display_single_guitar_detailed(guitar, explanation):
                     <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">{guitar_title}</div>
                 </div>
                 """, unsafe_allow_html=True)
-        else:
-            # No image URL, show icon
-            st.markdown(f"""
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                 color: white; padding: 40px; border-radius: 15px; text-align: center; 
-                 box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 20px;">
-                <div style="font-size: 64px; margin-bottom: 15px;">🎸</div>
-                <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">{brand}</div>
-                <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">{guitar_title}</div>
-            </div>
-            """, unsafe_allow_html=True)
         
         # Guitar details
         condition = guitar.get('condition', 'Unknown')
@@ -790,7 +800,7 @@ def main():
         main_image = Image.open("pic.png")
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
-            st.image(main_image, width=400, use_column_width=False)
+            st.image(main_image, width=400)
     except Exception as e:
         # Fallback if image not found
         st.info("🎸 Guitar image not available")
