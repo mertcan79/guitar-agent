@@ -12,7 +12,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 
 from ..config import config
-from ..scrapers import ReverbScraper
+from ..scrapers import MockGuitarScraper
 from ..models.guitar import GuitarRecommendation
 from ..knowledge.guitar_knowledge import GuitarKnowledgeBase
 
@@ -42,7 +42,7 @@ class EnhancedGuitarAgent:
         )
         
         # Initialize components
-        self.scraper = ReverbScraper(headless=True)
+        self.scraper = MockGuitarScraper()
         self.knowledge_base = GuitarKnowledgeBase()
         
         # Initialize fallback mock scraper
