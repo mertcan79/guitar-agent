@@ -23,7 +23,7 @@
    ```
 
 4. **Domain Name:**
-   Your app will be available at: `https://findmyguitarplease.streamlit.app`
+   Your app is now deployed at: `https://findmeaguitarpls.streamlit.app`
    
    To get a custom domain like `findmyguitarplease`:
    - The subdomain is automatically generated from your app name

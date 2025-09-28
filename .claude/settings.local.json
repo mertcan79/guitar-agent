@@ -4,7 +4,8 @@
       "Bash(mkdir:*)",
       "Bash(python:*)",
       "Bash(pip install:*)",
-      "Bash(streamlit run:*)"
+      "Bash(streamlit run:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
